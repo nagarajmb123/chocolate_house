@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
  Chocolate House Application
 
