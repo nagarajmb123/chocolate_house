@@ -1,17 +1,23 @@
-# this is the customer suggestion
+# models/customer_suggestions.py
 import sqlite3
 
 DATABASE = 'db/chocolate_house.db'
 
-def addingSuggestion(customerName, Suggestion, allergyConcern):
+def add_suggestion(customer_name, suggestion, allergy_concern):
     with sqlite3.connect(DATABASE) as conn:
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO CustomerSuggestions (customerName, Suggestion, allergyConcern) VALUES (?, ?, ?)", 
-                       (customerName, Suggestion, allergyConcern))
+        cursor.execute("INSERT INTO CustomerSuggestions (customer_name, suggestion, allergy_concern) VALUES (?, ?, ?)", 
+                       (customer_name, suggestion, allergy_concern))
         conn.commit()
 
-def getALLSuggestions():
+def get_suggestions():
     with sqlite3.connect(DATABASE) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM CustomerSuggestions")
         return cursor.fetchall()
+
+def delete_suggestion(suggestion_id):
+    with sqlite3.connect(DATABASE) as conn:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM CustomerSuggestions WHERE id = ?", (suggestion_id,))
+        conn.commit()

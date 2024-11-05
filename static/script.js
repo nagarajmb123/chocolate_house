@@ -1,7 +1,5 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Load the  existing data
+    // Load the existing data
     fetchFlavors();
     fetchIngredients();
     fetchSuggestions();
@@ -21,7 +19,11 @@ function fetchFlavors() {
             list.innerHTML = '';
             data.forEach(flavor => {
                 const item = document.createElement('li');
-                item.textContent = `${flavor[1]} - ${flavor[2]}`;
+                item.textContent = `${flavor[1]} - ${flavor[2]} `;
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = () => deleteFlavor(flavor[0]);
+                item.appendChild(deleteButton);
                 list.appendChild(item);
             });
         });
@@ -42,7 +44,15 @@ function addFlavor(event) {
     });
 }
 
-//Fetching and displaying ingredients
+function deleteFlavor(flavorId) {
+    fetch(`/flavors/${flavorId}`, {
+        method: 'DELETE'
+    }).then(() => {
+        fetchFlavors();
+    });
+}
+
+// Fetching and displaying ingredients
 function fetchIngredients() {
     fetch('/ingredients')
         .then(response => response.json())
@@ -51,7 +61,11 @@ function fetchIngredients() {
             list.innerHTML = '';
             data.forEach(ingredient => {
                 const item = document.createElement('li');
-                item.textContent = `${ingredient[1]} - Quantity: ${ingredient[2]}`;
+                item.textContent = `${ingredient[1]} - Quantity: ${ingredient[2]} `;
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = () => deleteIngredient(ingredient[0]);
+                item.appendChild(deleteButton);
                 list.appendChild(item);
             });
         });
@@ -72,7 +86,15 @@ function addIngredient(event) {
     });
 }
 
-//Fetching and displaying customersuggestions
+function deleteIngredient(ingredientId) {
+    fetch(`/ingredients/${ingredientId}`, {
+        method: 'DELETE'
+    }).then(() => {
+        fetchIngredients();
+    });
+}
+
+// Fetching and displaying customer suggestions
 function fetchSuggestions() {
     fetch('/suggestions')
         .then(response => response.json())
@@ -81,7 +103,11 @@ function fetchSuggestions() {
             list.innerHTML = '';
             data.forEach(suggestion => {
                 const item = document.createElement('li');
-                item.textContent = `${suggestion[1]} - ${suggestion[2]} (Allergy: ${suggestion[3]})`;
+                item.textContent = `${suggestion[1]} - ${suggestion[2]} (Allergy: ${suggestion[3]}) `;
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = () => deleteSuggestion(suggestion[0]);
+                item.appendChild(deleteButton);
                 list.appendChild(item);
             });
         });
@@ -103,6 +129,14 @@ function addSuggestion(event) {
         })
     }).then(() => {
         document.getElementById('suggestion-form').reset();
+        fetchSuggestions();
+    });
+}
+
+function deleteSuggestion(suggestionId) {
+    fetch(`/suggestions/${suggestionId}`, {
+        method: 'DELETE'
+    }).then(() => {
         fetchSuggestions();
     });
 }
