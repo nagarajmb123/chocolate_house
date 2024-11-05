@@ -143,6 +143,8 @@ The application will now be accessible at `http://127.0.0.1:5000`.
    - Use **GET** requests to verify that data is correctly stored and retrieved.
 
 
+added delete operation also
+
 
 
 
