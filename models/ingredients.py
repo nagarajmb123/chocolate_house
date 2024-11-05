@@ -3,11 +3,11 @@ import sqlite3
 
 DATABASE = 'db/chocolate_house.db'
 
-def addingIngredient(ingredient_name, quantity):
+def addingIngredient(ingredientName, Quantity):
     with sqlite3.connect(DATABASE) as conn:
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO Ingredients (ingredient_name, quantity) VALUES (?, ?)", 
-                       (ingredient_name, quantity))
+        cursor.execute("INSERT INTO Ingredients (ingredientName, Quantity) VALUES (?, ?)", 
+                       (ingredientName, Quantity))
         conn.commit()
 
 def getAllIngredients():

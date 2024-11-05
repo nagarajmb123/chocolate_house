@@ -18,8 +18,8 @@ def create_tables():
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS Ingredients (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        ingredient_name TEXT NOT NULL,
-        quantity INTEGER NOT NULL
+        ingredientName TEXT NOT NULL,
+        Quantity INTEGER NOT NULL
     )
     ''')
 
@@ -27,9 +27,9 @@ def create_tables():
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS CustomerSuggestions (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        customer_name TEXT,
-        suggestion TEXT,
-        allergy_concern TEXT
+        customerName TEXT,
+        Suggestion TEXT,
+        allergyConcern TEXT
     )
     ''')
 
