@@ -8,51 +8,50 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
-
-# Welcome Route
+#this route is for welcome to the application
 @app.route('/', methods=['GET'])
 def welcome():
     return "Welcome to the Chocolate House!"
 
-# Seasonal Flavors Routes
+#this route is to get the seasonalFlavors
 @app.route('/flavors', methods=['GET'])
-def get_flavors():
-    flavors = seasonal_flavors.get_flavors()
+def getSeasonalFlavors():
+    flavors = seasonal_flavors.getSeasonalFlavors()
     return jsonify(flavors)
 
+#this route is to add seasonalFlavors
 @app.route('/flavors', methods=['POST'])
-def add_flavor():
+def addingSeasonalFlavors():
     data = request.json
-    seasonal_flavors.add_flavor(data['flavor_name'], data['description'])
+    seasonal_flavors.addingSeasonalFlavors(data['flavor_name'], data['description'])
     return jsonify({"message": "Flavor added successfully"}), 201
 
-# Ingredients Routes
+#this route is to get ingredients
 @app.route('/ingredients', methods=['GET'])
-def get_ingredients():
-    ingredients_list = ingredients.get_ingredients()
-    return jsonify(ingredients_list)
+def getAllIngredients():
+    ingredientslist = ingredients.getAllIngredients()
+    return jsonify(ingredientslist)
 
+#this route is to add ingredients
 @app.route('/ingredients', methods=['POST'])
-def add_ingredient():
+def addingIngredient():
     data = request.json
-    ingredients.add_ingredient(data['ingredient_name'], data['quantity'])
+    ingredients.addingIngredient(data['ingredient_name'], data['quantity'])
     return jsonify({"message": "Ingredient added successfully"}), 201
 
-# Customer Suggestions Routes
+#this route is to get customersuggestions
 @app.route('/suggestions', methods=['GET'])
-def get_suggestions():
-    suggestions = customer_suggestions.get_suggestions()
-    return jsonify(suggestions)
-
+def getALLSuggestions():
+    Suggestion = customer_suggestions.getALLSuggestions()
+    return jsonify(Suggestion)
+#this route is to add customersuggestions
 @app.route('/suggestions', methods=['POST'])
-def add_suggestion():
+def addingSuggestion():
     data = request.json
-    customer_suggestions.add_suggestion(data['customer_name'], data['suggestion'], data['allergy_concern'])
+    customer_suggestions.addingSuggestion(data['customer_name'], data['suggestion'], data['allergy_concern'])
     return jsonify({"message": "Suggestion added successfully"}), 201
 
-@app.route('/test', methods=['GET'])
-def test():
-    return jsonify({"message": "Test route reached!"})
+
 
 
 if __name__ == '__main__':

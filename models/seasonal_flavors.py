@@ -1,16 +1,16 @@
-# models/seasonal_flavors.py
+#this is seasonalflavors
 import sqlite3
 
 DATABASE = 'db/chocolate_house.db'
 
-def add_flavor(flavor_name, description):
+def addingSeasonalFlavors(flavor_name, description):
     with sqlite3.connect(DATABASE) as conn:
         cursor = conn.cursor()
         cursor.execute("INSERT INTO SeasonalFlavors (flavor_name, description) VALUES (?, ?)", 
                        (flavor_name, description))
         conn.commit()
 
-def get_flavors():
+def getSeasonalFlavors():
     with sqlite3.connect(DATABASE) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM SeasonalFlavors")
