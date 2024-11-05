@@ -102,9 +102,9 @@ The application provides REST API endpoints for each table. Below are the detail
    ```json
    POST /suggestions
    {
-       "customerName": "John Doe",
+       "customerName": "raj",
        "suggestion": "Try a hazelnut flavor!",
-       "allergyConcern": "None"
+       "allergyConcern": "No"
    }
    ```
 
