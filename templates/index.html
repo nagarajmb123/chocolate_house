@@ -1,0 +1,49 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolate House</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Chocolate House</h1>
+
+    <!-- Seasonal Flavors Section -->
+    <section id="flavors-section">
+        <h2>Seasonal Flavors</h2>
+        <form id="flavor-form">
+            <input type="text" id="flavor-name" placeholder="Flavor Name" required>
+            <input type="text" id="flavor-description" placeholder="Description" required>
+            <button type="submit">Add Flavor</button>
+        </form>
+        <ul id="flavors-list"></ul>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section id="ingredients-section">
+        <h2>Ingredients</h2>
+        <form id="ingredient-form">
+            <input type="text" id="ingredient-name" placeholder="Ingredient Name" required>
+            <input type="number" id="ingredient-quantity" placeholder="Quantity" required>
+            <button type="submit">Add Ingredient</button>
+        </form>
+        <ul id="ingredients-list"></ul>
+    </section>
+
+    <!-- Customer Suggestions Section -->
+    <section id="suggestions-section">
+        <h2>Customer Suggestions</h2>
+        <form id="suggestion-form">
+            <input type="text" id="customer-name" placeholder="Customer Name" required>
+            <input type="text" id="suggestion-text" placeholder="Suggestion" required>
+            <input type="text" id="allergy-concern" placeholder="Allergy Concern">
+            <button type="submit">Add Suggestion</button>
+        </form>
+        <ul id="suggestions-list"></ul>
+    </section>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
