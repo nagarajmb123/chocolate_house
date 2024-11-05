@@ -76,7 +76,7 @@ The application provides REST API endpoints for each table. Below are the detail
    ```json
    POST /flavors
    {
-       "flavor_name": "Mint Chocolate",
+       "flavorName": "Mint Chocolate",
        "description": "Refreshing blend of mint and chocolate."
    }
    ```
