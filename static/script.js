@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Load the existing data
+    //Loading the existing data
     fetchFlavors();
     fetchIngredients();
     fetchSuggestions();
-
-    // Handling the submissions
+ 
+    //sunbmit handling
     document.getElementById('flavor-form').addEventListener('submit', addFlavor);
     document.getElementById('ingredient-form').addEventListener('submit', addIngredient);
     document.getElementById('suggestion-form').addEventListener('submit', addSuggestion);
 });
 
-// Fetching and displaying the flavors
+//to Fetching and displaying the flavors
 function fetchFlavors() {
     fetch('/flavors')
         .then(response => response.json())
@@ -52,7 +52,7 @@ function deleteFlavor(flavorId) {
     });
 }
 
-// Fetching and displaying ingredients
+//to Fetching and displaying ingredients
 function fetchIngredients() {
     fetch('/ingredients')
         .then(response => response.json())

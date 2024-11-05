@@ -1,4 +1,4 @@
-# models/customer_suggestions.py
+#CustomerSuggestions model
 import sqlite3
 
 DATABASE = 'db/chocolate_house.db'

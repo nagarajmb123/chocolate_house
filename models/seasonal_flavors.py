@@ -1,4 +1,4 @@
-# models/seasonal_flavors.py
+#seasonalflavors model
 import sqlite3
 
 DATABASE = 'db/chocolate_house.db'

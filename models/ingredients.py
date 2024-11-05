@@ -1,4 +1,4 @@
-# models/ingredients.py
+#ingredients model
 import sqlite3
 
 DATABASE = 'db/chocolate_house.db'

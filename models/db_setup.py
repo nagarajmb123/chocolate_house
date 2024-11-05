@@ -5,7 +5,7 @@ def create_tables():
     connection = sqlite3.connect('db/chocolate_house.db')
     cursor = connection.cursor()
 
-    # Create Seasonal Flavors Table
+    #to  Creating Seasonal Flavors Table
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS SeasonalFlavors (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
