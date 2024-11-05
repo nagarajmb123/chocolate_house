@@ -1,18 +1,18 @@
-// static/script.js
+
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Load existing data
+    // Load the  existing data
     fetchFlavors();
     fetchIngredients();
     fetchSuggestions();
 
-    // Handle form submissions
+    // Handling the submissions
     document.getElementById('flavor-form').addEventListener('submit', addFlavor);
     document.getElementById('ingredient-form').addEventListener('submit', addIngredient);
     document.getElementById('suggestion-form').addEventListener('submit', addSuggestion);
 });
 
-// Fetch and display flavors
+// Fetching and displaying the flavors
 function fetchFlavors() {
     fetch('/flavors')
         .then(response => response.json())
@@ -42,7 +42,7 @@ function addFlavor(event) {
     });
 }
 
-// Fetch and display ingredients
+//Fetching and displaying ingredients
 function fetchIngredients() {
     fetch('/ingredients')
         .then(response => response.json())
@@ -72,7 +72,7 @@ function addIngredient(event) {
     });
 }
 
-// Fetch and display customer suggestions
+//Fetching and displaying customersuggestions
 function fetchSuggestions() {
     fetch('/suggestions')
         .then(response => response.json())
